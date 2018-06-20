@@ -37,7 +37,7 @@ bot.on('message', message => {
             
             db.get("exp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write;
             
-    if (message.content === prefix + "xp{
+    if (message.content === prefix + "xp"{
         var xp = db.get("xp").filter({user: msgauthor}).find('xp').value()
         var xpfinal = Object.values(xp);
         var xp_embed = new Discord.RichEmbed()
