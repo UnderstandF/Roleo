@@ -37,6 +37,6 @@ bot.on('message', message => {
             .setDescription("Affichage des Levels") 
             .addField("XP:", `${xpfinal[1]} xp`) 
             .setFooter("Enjoy :)") 
-        message.channel.channel.send({embed: xp_embed}); 
+        message.channel.send({embed: xp_embed}); 
                       
 }}})
