@@ -1,5 +1,12 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const low = require('lowdb')
+const FileSync = require('lowdb/adapters/FileSync')
+
+const adapter = new FileSync('database.json');
+const db = low(adapter);
+
+db.defaults({ histoires: [], xp: []}).write()
 
 var prefix = ("&")
 
@@ -18,9 +25,9 @@ bot.on('message', message => {
     if(message.author.bot)return; 
                  
     if(!db.get("xp").find({user: msgauthor}).value()){ 
-            db.get("xp").push({user: msgauthor, xp: 1}).write(); 
+        db.get("xp").push({user: msgauthor, xp: 1}).write(); 
     }else{ 
-        var userxpdb = db.get("xp").filter({user: msgauthor}).find('exp').value(); 
+        var userxpdb = db.get("xp").filter({user: msgauthor}).find('xp').value(); 
         console.log(userxpdb); 
         var userxp = Object.values(userxpdb) 
         console.log(userxp) 
@@ -39,4 +46,6 @@ bot.on('message', message => {
             .setFooter("Enjoy :)") 
         message.channel.send({embed: xp_embed}); 
                       
-}}})
+}}}) 
+        
+
