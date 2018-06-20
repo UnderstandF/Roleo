@@ -26,9 +26,9 @@ bot.on('message', message => {
         console.log(userxp) 
         console.log(`Nombre d'xp: ${userxp[1]}`) 
                     
-        db.get("exp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write; 
+        db.get("exp").find({user: msgauthor}).assign({user: msgauthor, xp: userxp[1] += 1}).write(); 
                      
-    if (message.content === prefix + "xp"{ 
+    if (message.content === prefix + "xp"){ 
         var xp = db.get("xp").filter({user: msgauthor}).find('xp').value() 
         var xpfinal = Object.values(xp); 
         var xp_embed = new Discord.RichEmbed() 
@@ -36,9 +36,7 @@ bot.on('message', message => {
             .setColor('#F4D03F') 
             .setDescription("Affichage des Levels") 
             .addField("XP:", `${xpfinal[1]} xp`) 
-            .setFooter("Enjoy :)" 
-        message.channel.channel.send({embed: xp_embed});   
+            .setFooter("Enjoy :)") 
+        message.channel.channel.send({embed: xp_embed}); 
                       
-}}}) 
-        
-
+}}})
