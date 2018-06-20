@@ -23,7 +23,7 @@ bot.on('message', message => {
         message.channel.sendMessage("Liste des commandes: \n - &help");
         
         var msgauthor = message.author.id;
-        
+    
         if(message.author.bot)return;
         
         if(!db.get("xp").find({user: msgauthor}).value()){
@@ -46,14 +46,18 @@ bot.on('message', message => {
             .setDescription("Affichage des Levels")
             .addField("XP:", `${xpfinal[1]} xp`)
             .setFooter("Enjoy :)"
-       message.channel.send({embed: xp_embed});                  
-}      
+       message.channel.send({embed: xp_embed});  
+            
+}}})
+     
 
     if (message.content === "Salut"){
         message.reply("Salut mon pote ! ");
         console.log("Commande Salut effectué");
+    }
+});
        
-}}})
+
         
         
         
